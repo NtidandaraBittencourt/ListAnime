@@ -11,6 +11,8 @@ import Button from '@mui/material/Button';
 import Add from '@mui/icons-material/Add';
 import Loading from '../../shared/Loading';
 
+import './AnimeList.scss'; 
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
   ...theme.typography.body2,
@@ -69,18 +71,19 @@ const AnimeList = ({ search, page, rowsPerPage, format }) => {
             <p>Nenhum anime encontrado.</p>
           </Grid>
         )}
+        <Button 
+          onClick={() => addAnime()} startIcon={<Add />}
+          sx={{width: '100%'}}
+          className="button-add"
+          variant="contained"
+        > 
+          Ver mais
+        </Button>
       </Grid>
-      <Button 
-        onClick={() => addAnime()} startIcon={<Add />}
-        sx={{width: '100%'}}
-        className="button-add"
-        variant="contained"
-      > 
-         Ver mais
-      </Button>
     </Box>
   );
 };
+
 AnimeList.propTypes = {
   search: PropTypes.string.isRequired,
   page: PropTypes.string.isRequired,

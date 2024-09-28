@@ -61,13 +61,12 @@ npm install
 ### Rodar os testes
 
 ```bash
-cd frontend
 npm run test
 ```
 
 ## Diferenciais
 
 1. Implementação de testes unitários 
-2. Testes E2e
+2. Testes E2E
 3. Documentação
 4. Dark mode, responsividade

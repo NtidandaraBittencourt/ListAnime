@@ -7,9 +7,9 @@ import './index.scss'
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
-  <QueryClientProvider client={queryClient}>
     <StrictMode>
+  <QueryClientProvider client={queryClient}>
       <App />
-    </StrictMode>,
   </QueryClientProvider>
+    </StrictMode>
 )

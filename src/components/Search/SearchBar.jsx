@@ -6,6 +6,7 @@ const SearchBar = ({ onSearch }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleSearch = () => {
+    if (!inputValue) return;
     onSearch(inputValue);
   }
 
