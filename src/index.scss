@@ -1,0 +1,22 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import './styles/variables.scss';
+
+body {
+  margin: 0px;
+  font-family: 'Mulish', sans-serif;
+}
+
+.my-custom-font {
+  font-family: 'Mulish', sans-serif;
+}
+
+.loading-container {
+  color: $color-yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; 
+}

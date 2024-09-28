@@ -8,10 +8,9 @@ const anilistApi = axios.create({
     },
   });
   
-  // Função para buscar animes com paginação
-  export const fetchAnimes = async (search, page = 1, perPage = 5) => {
+  export const fetchAnimes = async (search, page = 1, perPage = 12, format) => {
     const query = `
-      query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+      query ($id: Int, $page: Int, $perPage: Int, $search: String, $format: MediaFormat) {
         Page (page: $page, perPage: $perPage) {
           pageInfo {
             total
@@ -20,7 +19,7 @@ const anilistApi = axios.create({
             hasNextPage
             perPage
           }
-          media (id: $id, search: $search) {
+          media (id: $id, search: $search, format: $format) {
             id
             title {
               romaji
@@ -39,10 +38,18 @@ const anilistApi = axios.create({
     `;
   
     const variables = {
-      search: search || "",  // Pesquisa ou busca geral
       page: page,
       perPage: perPage,
     };
+
+    if (search) {
+      variables.search = search;
+    }
+    
+    if (format) {
+      variables.format = format;
+    }
+
   
     const response = await anilistApi.post('', {
       query: query,

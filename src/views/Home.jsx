@@ -1,14 +1,23 @@
-import React from 'react';
-import AnimeList from '../components/AnimeList';
-import Button from '@mui/material/Button';
+import {useState} from 'react';
+import AnimeList from '../components/ListAnime/AnimeList';
+import Filter from '../components/Search/Filter';
 
 const Home = () => {
+  const [searchText, setSearchText] = useState('');
+  const [selectedFormat, setSelectedFormat] = useState('');
+
+  const handleSearch = (text) => {
+    setSearchText(text);
+  };
+
+  const handleFormatSelect = (format) => {
+    setSelectedFormat(format);
+  };
+
   return (
     <div>
-      <AnimeList search="Naruto" page="1" rowsPerPage="10" />
-      <div className="p-5">
-      <Button variant="text">Text</Button>
-    </div>
+      <Filter onSearch={handleSearch} onFormatSelect={handleFormatSelect} />
+      <AnimeList search={searchText} format={selectedFormat} page="1" rowsPerPage="12" />
     </div>
   )
 }
