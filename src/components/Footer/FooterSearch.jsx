@@ -1,6 +1,6 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import LogoAnime from '../assets/LogoAnime.svg';
+import LogoAnime from '../../assets/images/logoAnime.svg';
 import Box from '@mui/material/Box';
 
 const FooterSearch = () => (

@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import AnimeList from '../components/ListAnime/AnimeList';
-import Filter from '../components/Search/Filter';
+import AnimeList from '../../components/ListAnime/List/AnimeList';
+import Filter from '../../components/Search/Filter/Filter';
 
 const Home = () => {
   const [searchText, setSearchText] = useState('');

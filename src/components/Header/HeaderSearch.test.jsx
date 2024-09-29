@@ -1,7 +1,7 @@
 // HeaderSearch.test.js
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import HeaderSearch from '../components/HeaderSearch';
+import HeaderSearch from './HeaderSearch';
 import '@testing-library/jest-dom';
 
 describe('HeaderSearch', () => {

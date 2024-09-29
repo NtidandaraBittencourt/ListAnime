@@ -3,9 +3,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme, darkTheme } from './styles/theme';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import Home from './views/Home'
-import Header from './components/HeaderSearch'
-import Footer from './components/FooterSearch'
+import Home from './views/HomeView/Home'
+import Header from './components/Header/HeaderSearch'
+import Footer from './components/Footer/FooterSearch'
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);

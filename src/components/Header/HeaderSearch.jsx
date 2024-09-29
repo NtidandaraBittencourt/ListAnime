@@ -1,7 +1,7 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-import LogoAnime from '../assets/LogoAnime.svg';
+import LogoAnime from '../../assets/images/logoAnime.svg';
 import { Switch, FormControlLabel } from '@mui/material';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';

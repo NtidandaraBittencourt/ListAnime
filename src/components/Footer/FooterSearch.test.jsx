@@ -1,6 +1,6 @@
 // FooterSearch.test.js
 import { render, screen } from '@testing-library/react';
-import FooterSearch from '../components/FooterSearch';
+import FooterSearch from './FooterSearch';
 import '@testing-library/jest-dom';
 
 describe('FooterSearch', () => {

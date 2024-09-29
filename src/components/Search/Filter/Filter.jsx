@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SearchBar from './SearchBar';
-import SelectFormatAnime from './SelectFormatAnime';
+import SearchBar from '../SearchBar/SearchBar';
+import SelectFormatAnime from '../SelectFormat/SelectFormatAnime';
 import { Box } from '@mui/material';
 
 const Filter = ({ onSearch, onFormatSelect }) => (

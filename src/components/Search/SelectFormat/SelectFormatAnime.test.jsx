@@ -1,6 +1,6 @@
 // SelectFormatAnime.test.js
 import { render, screen, fireEvent } from '@testing-library/react';
-import SelectFormatAnime from '../components/Search/SelectFormatAnime';
+import SelectFormatAnime from './SelectFormatAnime';
 import '@testing-library/jest-dom';
 
 describe('SelectFormatAnime', () => {

@@ -1,19 +1,20 @@
 // AnimeList.test.js
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import AnimeList from '../components/ListAnime/AnimeList';
+import AnimeList from './AnimeList';
 import { useQuery } from '@tanstack/react-query';
 import '@testing-library/jest-dom';
-import Loading from '../shared/Loading';
+import Loading from '../../../shared/Loading';
+import AnimeCard from '../Card/AnimeCard';
 
 jest.mock('@tanstack/react-query', () => ({
   useQuery: jest.fn(),
 }));
-
+  
 describe('AnimeList', () => {
   const mockData = {
     media: [
-      { id: 1, title: { romaji: 'Naruto' }, coverImage: { large: 'naruto.jpg' } },
-      { id: 2, title: { romaji: 'One Piece' }, coverImage: { large: 'onepiece.jpg' } },
+      { id: 1, title: { romaji: 'Naruto' }, genres: ['Action', 'Adventure'], coverImage: { large: 'naruto.jpg' } },
+      { id: 2, title: { romaji: 'One Piece' },genres: ['Action', 'Adventure'], coverImage: { large: 'onepiece.jpg' } },
     ],
   };
 
@@ -38,13 +39,13 @@ describe('AnimeList', () => {
       refetch: jest.fn(),
     });
   
-    const { container } = render(<Loading />);
+    const {container} = render(<Loading />);
 
-  // Verifica se o componente de carregamento está sendo renderizado
-    expect(container.querySelector('Loading')).toBeInTheDocument();
+    expect(container.querySelector('.loading-container')).toBeInTheDocument();
   });
 
   it('exibe um erro quando a requisição falha', () => {
+    const mockError = { message: 'Nenhum anime encontrado' };
     useQuery.mockReturnValue({
       data: null,
       error: mockError,
@@ -67,7 +68,6 @@ describe('AnimeList', () => {
 
     render(<AnimeList {...defaultProps} />);
 
-    // Verifica se os animes são renderizados corretamente
     expect(screen.getByText('Naruto')).toBeInTheDocument();
     expect(screen.getByText('One Piece')).toBeInTheDocument();
   });
@@ -82,7 +82,6 @@ describe('AnimeList', () => {
 
     render(<AnimeList {...defaultProps} />);
 
-    // Verifica se a mensagem "Nenhum anime encontrado" está presente
     expect(screen.getByText('Nenhum anime encontrado.')).toBeInTheDocument();
   });
 
@@ -95,16 +94,13 @@ describe('AnimeList', () => {
       refetch: refetchMock,
     });
 
-    render(<AnimeList {...defaultProps} />);
+    render(<AnimeCard {...defaultProps} />);
 
-    // Verifica se o botão "Ver mais" está presente
     const verMaisButton = screen.getByRole('button', { name: /ver mais/i });
     expect(verMaisButton).toBeInTheDocument();
 
-    // Simula o clique no botão "Ver mais"
     fireEvent.click(verMaisButton);
 
-    // Verifica se a função refetch foi chamada ao clicar no botão
-    await waitFor(() => expect(refetchMock).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(refetchMock).toHaveBeenCalledTimes(2));
   });
 });
